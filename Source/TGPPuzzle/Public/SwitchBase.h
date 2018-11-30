@@ -33,8 +33,15 @@ public:
 
 	void NotifyActorBeginOverlap(AActor * OtherActor);
 
+	void NotifyActorEndOverlap(AActor * OtherActor);
+
 	UFUNCTION(BlueprintImplementableEvent, Category = "Pickup")
 	void OnActivate(AActor* collidedActor);
 
-	
+	UFUNCTION(BlueprintImplementableEvent, Category = "Pickup")
+	void OnDeactivate(AActor* collidedActor);
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Interact")
+	void Interact();
+
 };

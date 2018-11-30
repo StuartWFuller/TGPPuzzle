@@ -9,11 +9,15 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 
+
 //////////////////////////////////////////////////////////////////////////
 // ATGPPuzzleCharacter
 
 ATGPPuzzleCharacter::ATGPPuzzleCharacter()
 {
+
+	
+
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
@@ -74,6 +78,8 @@ void ATGPPuzzleCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ATGPPuzzleCharacter::OnResetVR);
+
+	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &ATGPPuzzleCharacter::OnInteract);
 }
 
 
@@ -131,4 +137,20 @@ void ATGPPuzzleCharacter::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
+}
+
+void ATGPPuzzleCharacter::OnInteract()
+{
+	_switch = Cast<ASwitchBase>(OverlappingActor);
+	_switch->Interact();
+}
+
+void ATGPPuzzleCharacter::NotifyActorBeginOverlap(AActor * OtherActor)
+{
+	OverlappingActor = OtherActor;
+}
+
+void ATGPPuzzleCharacter::NotifyActorEndOverlap(AActor * OtherActor)
+{
+	OverlappingActor = NULL;
 }

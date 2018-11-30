@@ -11,7 +11,10 @@ ASwitchBase::ASwitchBase()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	SphereComp = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"))
+	SphereComp = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"));
+
+	
+
 
 }
 
@@ -34,5 +37,11 @@ void ASwitchBase::Tick(float DeltaTime)
 void ASwitchBase::NotifyActorBeginOverlap(AActor * OtherActor)
 {
 	OnActivate(OtherActor);
+}
+
+
+void ASwitchBase::NotifyActorEndOverlap(AActor * OtherActor)
+{
+	OnDeactivate(OtherActor);
 }
 

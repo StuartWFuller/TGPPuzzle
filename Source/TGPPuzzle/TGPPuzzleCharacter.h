@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "SwitchBase.h"
 #include "TGPPuzzleCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -58,6 +59,10 @@ protected:
 	/** Handler for when a touch input stops. */
 	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
 
+	void OnInteract();
+
+	
+
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -68,5 +73,13 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
-};
 
+	void NotifyActorBeginOverlap(AActor * OtherActor);
+
+	void NotifyActorEndOverlap(AActor * OtherActor);
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Overlapping")
+		AActor * OverlappingActor;
+
+	ASwitchBase* _switch;
+};
