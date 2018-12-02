@@ -10,6 +10,7 @@
 #include "GameFramework/SpringArmComponent.h"
 
 
+
 //////////////////////////////////////////////////////////////////////////
 // ATGPPuzzleCharacter
 
@@ -141,8 +142,11 @@ void ATGPPuzzleCharacter::MoveRight(float Value)
 
 void ATGPPuzzleCharacter::OnInteract()
 {
-	_switch = Cast<ASwitchBase>(OverlappingActor);
-	_switch->Interact();
+	if (OverlappingActor != NULL)
+	{
+		_switch = Cast<ASwitchBase>(OverlappingActor);
+		_switch->Interact();
+	}
 }
 
 void ATGPPuzzleCharacter::NotifyActorBeginOverlap(AActor * OtherActor)
