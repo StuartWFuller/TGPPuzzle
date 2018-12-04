@@ -7,6 +7,7 @@
 #include "Components/InputComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
+#include "Engine/GameEngine.h"
 #include "GameFramework/SpringArmComponent.h"
 
 
@@ -144,14 +145,31 @@ void ATGPPuzzleCharacter::OnInteract()
 {
 	if (OverlappingActor != NULL)
 	{
-		_switch = Cast<ASwitchBase>(OverlappingActor);
-		_switch->Interact();
+		/*if (OverlappingActor->GetClass()->IsChildOf(ASwitchBase::StaticClass))
+		{*/
+			_switch = Cast<ASwitchBase>(OverlappingActor);
+			_switch->Interact();
+		/*}*/
 	}
 }
 
 void ATGPPuzzleCharacter::NotifyActorBeginOverlap(AActor * OtherActor)
 {
 	OverlappingActor = OtherActor;
+
+
+	/*if (OverlappingActor == _door)
+	{
+		_door = Cast<ADoorBase>(OverlappingActor);
+
+		if (_door->IsOpen == false)
+		{
+			if (GEngine)
+			{
+				GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Red, TEXT("NotOpen"));
+			}
+		}
+	}*/
 }
 
 void ATGPPuzzleCharacter::NotifyActorEndOverlap(AActor * OtherActor)

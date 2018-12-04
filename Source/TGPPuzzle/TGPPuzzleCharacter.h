@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "SwitchBase.h"
+#include "DoorBase.h"
 #include "TGPPuzzleCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -82,4 +83,5 @@ public:
 		AActor * OverlappingActor;
 
 	ASwitchBase* _switch;
+	ADoorBase* _door;
 };

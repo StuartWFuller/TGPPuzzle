@@ -13,9 +13,6 @@ ASwitchBase::ASwitchBase()
 
 	SphereComp = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"));
 
-	
-
-
 }
 
 // Called when the game starts or when spawned
@@ -43,5 +40,12 @@ void ASwitchBase::NotifyActorBeginOverlap(AActor * OtherActor)
 void ASwitchBase::NotifyActorEndOverlap(AActor * OtherActor)
 {
 	OnDeactivate(OtherActor);
+}
+
+void ASwitchBase::OnInteract(AActor * OtherActor)
+{
+	_door = Cast<ADoorBase>(OtherActor);
+	_door->ToggleDoor();
+	
 }
 

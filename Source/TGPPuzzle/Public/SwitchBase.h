@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "DoorBase.h"
 #include "SwitchBase.generated.h"
 
 class USphereComponent;
@@ -44,4 +45,8 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Interact")
 	void Interact();
 
+	UFUNCTION(BlueprintCallable)
+	void OnInteract(AActor* OtherActor);
+
+	ADoorBase* _door;
 };
