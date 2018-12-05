@@ -145,11 +145,10 @@ void ATGPPuzzleCharacter::OnInteract()
 {
 	if (OverlappingActor != NULL)
 	{
-		/*if (OverlappingActor->GetClass()->IsChildOf(ASwitchBase::StaticClass))
-		{*/
+		
 			_switch = Cast<ASwitchBase>(OverlappingActor);
 			_switch->Interact();
-		/*}*/
+		
 	}
 }
 
