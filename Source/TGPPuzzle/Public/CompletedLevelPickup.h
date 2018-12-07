@@ -27,9 +27,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	/*void NotifyActorBeginOverlap(AActor * OtherActor);
+	void NotifyActorBeginOverlap(AActor * OtherActor);
 
-	void NotifyActorEndOverlap(AActor * OtherActor);*/
+	void NotifyActorEndOverlap(AActor * OtherActor);
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "OverlappingActor")
 		AActor* OverlappingActor;

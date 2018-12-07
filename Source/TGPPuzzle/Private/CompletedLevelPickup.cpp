@@ -31,22 +31,22 @@ void ACompletedLevelPickup::Tick(float DeltaTime)
 
 }
 
-//void NotifyActorBeginOverlap(AActor * OtherActor)
-//{
-//	/*OverlappingActor;
-//
-//	if (OverlappedActor != NULL)
-//	{
-//		if (GEngine)
-//		{
-//			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Red, TEXT("YOOO"));
-//		}
-//	}*/
-//
-//
-//}
-//
-//void NotifyActorEndOverlap(AActor * OtherActor)
-//{
-//
-//}
+void ACompletedLevelPickup::NotifyActorBeginOverlap(AActor * OtherActor)
+{
+	OverlappingActor = OtherActor;
+
+	if (OverlappingActor != NULL)
+	{
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Red, TEXT("YOOO"));
+		}
+	}
+
+
+}
+
+void ACompletedLevelPickup::NotifyActorEndOverlap(AActor * OtherActor)
+{
+
+}

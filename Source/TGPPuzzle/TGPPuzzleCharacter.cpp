@@ -147,7 +147,11 @@ void ATGPPuzzleCharacter::OnInteract()
 	{
 		
 			_switch = Cast<ASwitchBase>(OverlappingActor);
-			_switch->Interact();
+			if (_switch != NULL)
+			{
+				_switch->Interact();
+			}
+
 		
 	}
 }
