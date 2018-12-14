@@ -62,6 +62,10 @@ protected:
 
 	void OnInteract();
 
+	void Tick(float DeltaTime);
+
+	
+
 	
 
 protected:
@@ -81,6 +85,11 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Overlapping")
 		AActor * OverlappingActor;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		float Countdown = 30.0f;
+
+	bool IsRunning = true;
 
 	ASwitchBase* _switch;
 	ADoorBase* _door;

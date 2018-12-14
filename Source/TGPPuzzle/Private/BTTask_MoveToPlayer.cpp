@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "BTTask_MoveToPlayer.h"
 #include "TGPPuzzle.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "BehaviorTree/BehaviorTreeComponent.h"
@@ -8,7 +9,7 @@
 #include "EnemyAI.h"
 #include "TGPPuzzleCharacter.h"
 #include "EnemyCharacter.h"
-#include "BTTask_MoveToPlayer.h"
+
 
 
 EBTNodeResult::Type UBTTask_MoveToPlayer::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)

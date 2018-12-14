@@ -30,7 +30,7 @@ void UBTService_CheckForPlayer::TickNode(UBehaviorTreeComponent& OwnerComp, uint
 		if (Enemy)
 		{
 			OwnerComp.GetBlackboardComponent()->SetValue<UBlackboardKeyType_Object>(EnemyPC->EnemyKeyID, Enemy);
-			GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::White, "Death To You!");
+			/*GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::White, "Death To You!");*/
 		}
 	}
 }

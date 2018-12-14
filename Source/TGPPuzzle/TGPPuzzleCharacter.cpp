@@ -179,3 +179,17 @@ void ATGPPuzzleCharacter::NotifyActorEndOverlap(AActor * OtherActor)
 {
 	OverlappingActor = NULL;
 }
+
+void ATGPPuzzleCharacter::Tick(float DeltaTime)
+{
+
+	if (IsRunning)
+	{
+		Countdown -= DeltaTime;
+	}
+
+	if (Countdown <= 0.0f)
+	{
+		IsRunning = false;
+	}
+}
