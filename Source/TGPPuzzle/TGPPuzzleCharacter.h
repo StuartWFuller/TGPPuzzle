@@ -91,6 +91,9 @@ public:
 
 	bool IsRunning = true;
 
+	UFUNCTION(BlueprintCallable)
+		void OnInteract(AActor* OtherActor);
+
 	ASwitchBase* _switch;
 	ADoorBase* _door;
 };

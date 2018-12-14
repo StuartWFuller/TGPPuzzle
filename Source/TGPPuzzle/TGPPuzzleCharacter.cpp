@@ -183,13 +183,23 @@ void ATGPPuzzleCharacter::NotifyActorEndOverlap(AActor * OtherActor)
 void ATGPPuzzleCharacter::Tick(float DeltaTime)
 {
 
+	if (Countdown <= 0.002f)
+	{
+		IsRunning = false;
+		OnInteract();
+	}
+
 	if (IsRunning)
 	{
 		Countdown -= DeltaTime;
 	}
 
-	if (Countdown <= 0.0f)
-	{
-		IsRunning = false;
-	}
+	
+}
+
+
+void ATGPPuzzleCharacter::OnInteract(AActor* OtherActor)
+{
+	_door = Cast<ADoorBase>(OtherActor);
+	_door->ToggleDoor();
 }
