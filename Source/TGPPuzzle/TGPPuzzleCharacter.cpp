@@ -200,6 +200,7 @@ void ATGPPuzzleCharacter::Tick(float DeltaTime)
 
 void ATGPPuzzleCharacter::OnInteract(AActor* OtherActor)
 {
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::White, "YOTE!");
 	_door = Cast<ADoorBase>(OtherActor);
 	_door->ToggleDoor();
 }
