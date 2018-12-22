@@ -185,8 +185,13 @@ void ATGPPuzzleCharacter::Tick(float DeltaTime)
 
 	if (Countdown <= 0.002f)
 	{
-		IsRunning = false;
-		OnInteract();
+		if (!Completed)
+		{
+			Completed = true;
+			IsRunning = false;
+			/*_door = Cast<ADoorBase>(OtherActor);
+			_door->ToggleDoor();*/
+		}
 	}
 
 	if (IsRunning)

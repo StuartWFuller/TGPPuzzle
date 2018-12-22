@@ -90,6 +90,7 @@ public:
 		float Countdown = 30.0f;
 
 	bool IsRunning = true;
+	bool Completed = false;
 
 	UFUNCTION(BlueprintCallable)
 		void OnInteract(AActor* OtherActor);
