@@ -192,12 +192,17 @@ void ATGPPuzzleCharacter::Tick(float DeltaTime)
 			/*_door = Cast<ADoorBase>(OtherActor);
 			_door->ToggleDoor();*/
 		}
+		else
+		{
+			OpenDoor();
+		}
 	}
 
 	if (IsRunning)
 	{
 		Countdown -= DeltaTime;
 	}
+
 
 	
 }

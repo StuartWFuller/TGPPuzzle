@@ -5,7 +5,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/SphereComponent.h"
 #include "ColourPickup.generated.h"
+
 
 UCLASS()
 class TGPPUZZLE_API AColourPickup : public AActor
@@ -29,9 +31,7 @@ public:
 
 	void NotifyActorBeginOverlap(AActor * OtherActor);
 
-	void NotifyActorEndOverlap(AActor * OtherActor);
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "OverlappingActor")
-		AActor* OverlappingActor;
+	UFUNCTION(BlueprintImplementableEvent, Category = "Pickup")
+		void OnActivate(AActor* pickedUpBy);
 	
 };

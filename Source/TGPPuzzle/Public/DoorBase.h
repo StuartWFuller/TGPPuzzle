@@ -45,7 +45,7 @@ public:
 	UFUNCTION()
 		void ControlDoor();
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 		void ToggleDoor();
 
 	UFUNCTION()

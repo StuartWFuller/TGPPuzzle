@@ -3,6 +3,7 @@
 
 #include "CompletedLevelPickup.h"
 #include "Engine/GameEngine.h"
+#include "Kismet/GameplayStatics.h"
 
 
 
@@ -37,10 +38,11 @@ void ACompletedLevelPickup::NotifyActorBeginOverlap(AActor * OtherActor)
 
 	if (OverlappingActor != NULL)
 	{
-		if (GEngine)
+		/*if (GEngine)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Red, TEXT("YOOO"));
-		}
+			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Red, TEXT("YOOO"));*/
+			SwapLevel();
+		/*}*/
 	}
 
 
@@ -49,4 +51,35 @@ void ACompletedLevelPickup::NotifyActorBeginOverlap(AActor * OtherActor)
 void ACompletedLevelPickup::NotifyActorEndOverlap(AActor * OtherActor)
 {
 
+}
+
+void ACompletedLevelPickup::SwapLevel()
+{
+
+	UWorld* TheWorld = GetWorld();
+	FString CurrentLevel = TheWorld->GetMapName();
+
+	/*GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Green, CurrentLevel);*/
+
+	if (CurrentLevel == "UEDPIE_0_ThirdPersonExampleMap")
+	{
+		UGameplayStatics::OpenLevel(this, "2ndLevel");
+	}
+
+	if (CurrentLevel == "UEDPIE_0_2ndLevel")
+	{
+		UGameplayStatics::OpenLevel(this, "3rdLevel");
+	}
+	
+	if (CurrentLevel == "UEDPIE_0_3rdLevel")
+	{
+		UGameplayStatics::OpenLevel(this, "4thLevel");
+	}
+
+	if (CurrentLevel == "UEDPIE_0_4thLevel")
+	{
+		UGameplayStatics::OpenLevel(this, "Finish");
+	}
+	
+	
 }

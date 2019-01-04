@@ -94,6 +94,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 		void OnInteract(AActor* OtherActor);
+	UFUNCTION(BlueprintImplementableEvent)
+		void OpenDoor();
 
 	ASwitchBase* _switch;
 	ADoorBase* _door;

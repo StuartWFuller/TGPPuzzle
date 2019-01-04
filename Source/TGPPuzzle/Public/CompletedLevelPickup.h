@@ -33,5 +33,7 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "OverlappingActor")
 		AActor* OverlappingActor;
+
+	void SwapLevel();
 	
 };
