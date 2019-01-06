@@ -73,13 +73,7 @@ void ACompletedLevelPickup::SwapLevel()
 	
 	if (CurrentLevel == "UEDPIE_0_3rdLevel")
 	{
-		UGameplayStatics::OpenLevel(this, "4thLevel");
-	}
-
-	if (CurrentLevel == "UEDPIE_0_4thLevel")
-	{
 		UGameplayStatics::OpenLevel(this, "Finish");
 	}
-	
 	
 }
